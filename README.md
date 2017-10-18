@@ -1,40 +1,45 @@
-## Plural sight
+# Plural sight
 
 Hello Paresh
 
-...
+
 
 	int Main()(string arg[])
 	{
-	System.io.println("Hello Paresh");
+		System.io.println("Hello Paresh");
 
-	return 0;
+		return 0;
 	}
-...
 
 
-##the output should be
+
+## The output should be
 
 
-$Hello Paresh
 
-Some git commands
+	$Hello Paresh
 
-git --version
 
-git clone https://github.com/tuantrankim/Pluralsight.git
+## Some git commands
 
-git status
 
-git add .
+	git --version
 
-git commit -m 'Hello Paresh'
+	git clone https://github.com/tuantrankim/Pluralsight.git
 
-git push
+	git status
 
-git branch
+	git add .
 
-git checkout master
+	git commit -m 'Hello Paresh'
 
-git remote
+	git push
+
+	git branch
+
+	git checkout master
+
+	git remote
+
+
 
