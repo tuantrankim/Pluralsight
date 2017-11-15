@@ -80,5 +80,28 @@ More about python regex: http://goo.gl/5uJsfy
 		return HttpResponse("Hello, World!")
 	
 Move generation of HTML to a template instead
+## Templates
+- Can render HTML or any kind of text-based format
+- To render a template from a view:
+	use django.shortcuts.render
+- Templates go in the templates/dir of your app
+	project/app/templates/app/template.html
+	boardgames/main/templates/main/home.html
+
+## Static Files
+- For non-dynamic content like CSS, JavaScript, images
+- May be hosted seperately
+- In setting.py
+	STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+- In templates:
+	{% load staticfiles %} at start template
+	{% static 'path/to/file' %} to refer to static content
+	e.g:
+	<link rel="stylesheet"
+		href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+## Model Template View
+
+Like MVC, but Template like View, View as Controller, and Model
 
 
