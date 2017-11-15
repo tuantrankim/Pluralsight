@@ -72,4 +72,13 @@ with it's own models, views, templates, url mappings
 
 	> python manage.py startapp main
 - Add new page to view then add main app to boardgames/setting.py
-- Add new urls to urls.py
+- Add new urls to urls.py using regular expression. ^ means start, $ means end. without ^ or $ will be open start or open end string.
+More about python regex: http://goo.gl/5uJsfy
+
+## Django Views
+	def home(request):
+		return HttpResponse("Hello, World!")
+	
+Move generation of HTML to a template instead
+
+
