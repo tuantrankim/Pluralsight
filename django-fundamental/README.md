@@ -104,4 +104,41 @@ Move generation of HTML to a template instead
 
 Like MVC, but Template like View, View as Controller, and Model
 
+create new app ticktactoe and add the app to setting.py
+In tictactoe/models.py add models class then run
+	> python manage.py migrate
 
+Each model class maps to a database table
+and it is subclasses of django.db.models.Model class
+
+Each attribute of the model represents a database field
+reference http://goo.gl/rgqWZu
+
+To reate admin user/password
+	> python manage.py createsuperuser
+change password
+	> manage.py changepassword <user_name>
+
+e.g.: admin/adminpassword
+
+To install sqlite3
+	> sudo apt-get install sqlite3
+for windows : download sqlite-tools-win32-x86-3120200.zip from 
+https://www.sqlite.org/download.html
+
+Start a shell for database (need sqlite3)
+	> python manage.py dbshell
+	sqlite> drop table tictactoe_game;
+	sqlite> .exit
+unapply all migration on tictactoe
+	> ython manage.py migrate --fake tictactoe zero
+
+## Admin
+An auto-generated user interface to edit your data
+	Need to register your models in your apps' admin.py
+	admin.site.register(MyModel)
+
+Very customizable
+	For documentation, see: http://goo.gl/70YyPC
+
+Implement __str__ for your model classes
