@@ -142,3 +142,49 @@ Very customizable
 	For documentation, see: http://goo.gl/70YyPC
 
 Implement __str__ for your model classes
+
+## Models
+	> python manage.py shell
+	>>> from tictactoe.models import Game, Move
+	Select all game objects
+	>>> Game.objects.all
+	Select by using primary key = 1
+	>>> Game.objects.get(pk=1)
+	>>> g = Game.objects.get(pk=1)
+	>>> g.id
+	Filter
+	>>> Game.objects.filter(status="A")
+	Filter all except status "A"
+	>>> Game.objects.exclude(status="A")
+	Get the object that have property first_player.username = "alice"
+	>>> Game.objects.filter(first_player__username="alice")
+
+	Insert
+	>>> m=Move(x=1, y=2, comment="Let the best player win!", game=g)
+	>>> m.save()
+
+	Master detail or relationship object
+	get all move relate to the game
+	>>> g.move_set
+	>>> g.move_set.all()
+	>>> g.move_set.count()
+	>>> g.move_set.exclude(comment='')
+	Update
+	>>> g.status="D"
+	>>> g.save()
+
+## Save and Delete
+
+- Create a new instance with keyword arguments
+	>>> m=new Move(x=1, y=2, game=g)
+- save() on a new object:
+	>>> m.save()
+	Sets the primary key field and does SQL INSERT
+	save() on an existing object with changes: UPDATE
+- delete() removes an objects from the database
+	g=Game.objects.get(pk=1); g.delete()
+
+
+
+
+	
