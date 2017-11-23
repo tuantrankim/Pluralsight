@@ -1,4 +1,6 @@
 # Django fundamental
+https://www.youtube.com/watch?v=yDv5FIAeyoY
+
 
 Advantage
 
@@ -147,7 +149,7 @@ Implement __str__ for your model classes
 	> python manage.py shell
 	>>> from tictactoe.models import Game, Move
 	Select all game objects
-	>>> Game.objects.all
+	>>> Game.objects.all()
 	Select by using primary key = 1
 	>>> Game.objects.get(pk=1)
 	>>> g = Game.objects.get(pk=1)
@@ -172,6 +174,8 @@ Implement __str__ for your model classes
 	Update
 	>>> g.status="D"
 	>>> g.save()
+	Exit
+	>>> exit()
 
 ## Save and Delete
 
@@ -184,7 +188,29 @@ Implement __str__ for your model classes
 - delete() removes an objects from the database
 	g=Game.objects.get(pk=1); g.delete()
 
+## The Model API
 
+- Model class have a Manager instance called "objects".
+	It is a class attribute: Game.objects not g.objects
+- get() returns a single instance
+	Game.objects.get(pk=1)
+- all() returns all rows
+- filter() returns matching objects
+	Game.objects.filter(status='A')
+- exclude() returns objects that don't match
 
+## One-to-Many relations
+
+- Defined by a Foreign key field
+	on the "one" side of the relation
+- Many side get a xxx_set attribute
+	Where xxx is the name of the relation model
+	This is a "related manager" object
+	Work just like "objects" manager
+- Set relation from Move m to Game g:
+	m.game = g
+	or
+	g.move_set.add(m)
+- Django also offers OneToOne and ManyToMany fields (http://goo.gl/rgqWZu)
 
 	
