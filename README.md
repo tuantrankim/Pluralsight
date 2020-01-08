@@ -1,8 +1,5 @@
 # Plural sight
 
-# Cu bin xin chao Cu Tri
-
-
 Learning project from Plural Sight
 
 	int Main()(string arg[])
